@@ -22,7 +22,7 @@ function getComputerChoice(computerChoice) {
 getComputerChoice(computerChoice);
 
 function getHumanChoice(humanChoice) {
-    humanChoice = prompt("Please type either rock, paper, or scissors with lowercase letters");
+    humanChoice = prompt("Please type either rock, paper, or scissors").toLowerCase();
     if (humanChoice === ("rock")) {
         humanChoice = rock;
         return humanChoice;
