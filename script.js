@@ -5,7 +5,8 @@ const paper = "paper";
 const scissors = "scissors";
 let humanChoice = null;
 let computerChoice = null;
-let newHumanChoice = null;
+let humanScore = 0;
+let computerScore = 0;
  
 function getComputerChoice(computerChoice) {
     computerChoice = Math.floor(Math.random() * 100);
@@ -43,4 +44,21 @@ function getHumanChoice(humanChoice) {
 computerChoice = getComputerChoice(true);
 humanChoice = getHumanChoice(true);
 
-console.log(computerChoice,humanChoice);
+console.log(humanChoice,computerChoice);
+
+function playRound(computerChoice,humanChoice) {
+    if ((computerChoice === rock && humanChoice === rock) || (computerChoice === paper && humanChoice === paper) || (computerChoice === scissors && humanChoice === scissors)) {
+    alert(`It's a draw! You both chose ${humanChoice}!`);
+    return;
+    } else if ((computerChoice === rock && humanChoice === scissors) || (computerChoice === paper && humanChoice === rock) || (computerChoice === scissors && humanChoice === paper)) {
+        alert(`You lose! You chose ${humanChoice}, the computer got ${computerChoice}`);
+        return computerScore ++;
+    } else {
+        alert(`You win! You chose ${humanChoice}, the computer went for ${computerChoice}. Bravo!`)
+        return humanScore ++;
+    }
+}
+
+playRound(computerChoice,humanChoice);
+
+console.log(humanScore,computerScore)
