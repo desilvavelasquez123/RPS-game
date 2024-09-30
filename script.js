@@ -1,63 +1,50 @@
-console.log("Hello World!");
+alert("Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your compute. Please select 'OK' to close this windows and start the game! Good luck!");
 
 let humanScore = 0,
 computerScore = 0,
 draw = 0;
 
-
 function playGame() {
 
-const rock = "rock";
-const paper = "paper";
-const scissors = "scissors";
-let computerChoice = null;
-let humanChoice = null;
+const rock = "rock",
+paper = "paper",
+scissors = "scissors";
 
-    function getComputerChoice(choice) {
-        computerChoice = Math.floor(Math.random() * 100);
-        if (computerChoice <= 33.33) {
-            computerChoice = rock;
-            return computerChoice;
-        } else if (computerChoice <= 66.66) {
-            computerChoice = paper;
-            return computerChoice;
-        } else {
-            computerChoice = scissors;}
-            return computerChoice;
+    function playRound() {
+
+        let computerChoice = () => {
+
+            randomNumber = Math.floor(Math.random() * 100);
+            if (randomNumber <= 33.33) {
+                return rock;
+            } else if (randomNumber <= 66.66) {
+                return paper;
+            } else {
+                return scissors;}
     }
-
-    getComputerChoice(computerChoice);
-
-    function getHumanChoice(choice) {
-        humanChoice = (prompt("Please type either rock, paper, or scissors")).toLowerCase();
-        if (humanChoice === ("rock")) {
-            humanChoice = rock;
-            return humanChoice;
+    
+        let computerMove = computerChoice();
+    
+        function humanChoice() {
+            let choice = prompt("Please type either rock, paper, or scissors").toLowerCase();
+            if (choice === rock || choice === paper || choice === scissors) {
+                return choice;
+            } else {
+                alert("Choose one of the actual choices, don't goof around! :D");
+                return humanChoice();
+            }
         }
-        else if (humanChoice === ("paper")) {
-            humanChoice = paper;
-            return humanChoice;
-        }
-        else if (humanChoice === ("scissors")) {
-            humanChoice = scissors
-            return humanChoice;
-        } else {
-            alert("Choose one of the actual choices, don't goof around! :D")
-            return getHumanChoice(humanChoice);
-        }
-    }
+    
+        let humanMove = humanChoice();
 
-    getHumanChoice(humanChoice);
-
-function playRound(choiceComputer,choiceHuman) {
-    if ((computerChoice === rock && humanChoice === rock) || (computerChoice === paper && humanChoice === paper) || (computerChoice === scissors && humanChoice === scissors)) {
-    alert(`It's a draw! You both chose ${humanChoice}!`);
+    if ((computerMove === rock && humanMove === rock) || (computerMove === paper && humanMove === paper) || (computerMove === scissors && humanMove === scissors)) {
+    alert(`It's a draw! You both chose ${humanMove}!`);
     return draw ++;
-    } else if ((computerChoice === rock && humanChoice === scissors) || (computerChoice === paper && humanChoice === rock) || (computerChoice === scissors && humanChoice === paper)) {
-        alert(`You lose! You chose ${humanChoice}, the computer got ${computerChoice}`);
+    } else if ((computerMove === rock && humanMove === scissors) || (computerMove === paper && humanMove === rock) || (computerMove === scissors && humanMove === paper)) {
+        alert(`You lose! You chose ${humanMove}, the computer got ${computerMove}`);
         return computerScore ++;
     } else {
-        alert(`You win! You chose ${humanChoice}, the computer went for ${computerChoice}. Bravo!`)
+        alert(`You win! You chose ${humanMove}, the computer went for ${computerMove}. Bravo!`)
         return humanScore ++;
     }
 }
@@ -72,4 +59,4 @@ playGame();
 playGame();
 playGame();
 
-alert(`Final score is: You: ${humanScore} Computer: ${computerScore} Draw: ${draw}`);
+alert(`Final score is: You: ${humanScore} Computer: ${computerScore} Draw: ${draw} Please reload this page to restart the game!`);
