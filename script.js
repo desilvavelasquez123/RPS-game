@@ -1,4 +1,4 @@
-alert("Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your compute. Please select 'OK' to close this windows and start the game! Good luck!");
+alert("Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your device. Please select 'OK' to close this windows and start the game! Good luck!");
 
 let humanScore = 0,
 computerScore = 0,
@@ -59,4 +59,4 @@ playGame();
 playGame();
 playGame();
 
-alert(`Final score is: You: ${humanScore} Computer: ${computerScore} Draw: ${draw} Please reload this page to restart the game!`);
+alert(`Final score: You: ${humanScore} Computer/Device: ${computerScore} Draw: ${draw} Please reload this page to restart the game!`);
