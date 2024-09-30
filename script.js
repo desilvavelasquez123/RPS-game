@@ -26,7 +26,7 @@ scissors = "scissors";
         let computerMove = computerChoice();
     
         function humanChoice() {
-            let choice = prompt("Please type either rock, paper, or scissors").toLowerCase();
+            let choice = prompt("Please type either rock, paper, or scissors").trim().toLowerCase();
             if (choice === rock || choice === paper || choice === scissors) {
                 return choice;
             } else {
