@@ -2,7 +2,7 @@
 
 // greetings
 
-alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your device. Please select "OK" to close this windows and start the game! Good luck!');
+alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page!\nYou will play 5 rounds against your device.\nPlease select "OK" to close this windows and start the game!\nGood luck! :)');
 
 // global variables for scoring
 
@@ -43,7 +43,7 @@ function playGame() {
         // human choice via prompt()
 
         function getHumanChoice() {
-            let choice = prompt("Please type either rock, paper, or scissors").trim().toLowerCase();
+            let choice = prompt('Please type either "rock, paper, or scissors".').trim().toLowerCase();
             if (choice === rock || choice === paper || choice === scissors) {
                 return choice;
             } else {
@@ -56,10 +56,14 @@ function playGame() {
 
         // scoring algorithm
 
-        if ((computerMove === rock && humanMove === rock) || (computerMove === paper && humanMove === paper) || (computerMove === scissors && humanMove === scissors)) {
+        if ((computerMove === rock && humanMove === rock)
+            || (computerMove === paper && humanMove === paper)
+            || (computerMove === scissors && humanMove === scissors)) {
             alert(`It's a draw! You both chose ${humanMove}!`);
             draw++;
-        } else if ((computerMove === rock && humanMove === scissors) || (computerMove === paper && humanMove === rock) || (computerMove === scissors && humanMove === paper)) {
+        } else if ((computerMove === rock && humanMove === scissors)
+            || (computerMove === paper && humanMove === rock)
+            || (computerMove === scissors && humanMove === paper)) {
             alert(`You lose! You chose ${humanMove}, the computer got ${computerMove}`);
             computerScore++;
         } else {
@@ -80,4 +84,4 @@ playGame();
 playGame();
 playGame();
 
-alert(`Final score: You: ${humanScore} Computer/Device: ${computerScore} Draw: ${draw} Please reload this page to restart the game!`);
+alert(`Final score: You: ${humanScore} Computer/Device: ${computerScore} Draw: ${draw}\nPlease reload this page to restart the game!`);
