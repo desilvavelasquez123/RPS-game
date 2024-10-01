@@ -1,70 +1,74 @@
-alert("Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your device. Please select 'OK' to close this windows and start the game! Good luck!"); // greetings
+"use strict";
+
+// greetings
+
+alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page! You will play 5 rounds against your device. Please select "OK" to close this windows and start the game! Good luck!');
 
 // global variables for scoring
 
 let humanScore = 0,
-computerScore = 0,
-draw = 0;
+    computerScore = 0,
+    draw = 0;
 
 // main function/game
 
 function playGame() {
 
-// choice variables
+    // choice variables
 
-const rock = "rock",
-paper = "paper",
-scissors = "scissors";
+    const rock = "rock",
+        paper = "paper",
+        scissors = "scissors";
 
-// round function
+    // round function
 
     function playRound() {
 
-// computer chooses first
+        // computer chooses first
 
-        let computerChoice = () => {
+        let getComputerChoice = () => {
 
-            randomNumber = Math.floor(Math.random() * 100);
-            if (randomNumber <= 33.33) {
+            let randomNumber = Math.floor(Math.random() * 3);
+            if (randomNumber === 0) {
                 return rock;
-            } else if (randomNumber <= 66.66) {
+            } else if (randomNumber === 1) {
                 return paper;
             } else {
-                return scissors;}
-    }
-    
-        let computerMove = computerChoice();
-    
-// human choice via prompt()
+                return scissors;
+            }
+        }
 
-        function humanChoice() {
+        const computerMove = getComputerChoice();
+
+        // human choice via prompt()
+
+        function getHumanChoice() {
             let choice = prompt("Please type either rock, paper, or scissors").trim().toLowerCase();
             if (choice === rock || choice === paper || choice === scissors) {
                 return choice;
             } else {
                 alert("Choose one of the actual choices, don't goof around! :D");
-                return humanChoice();
+                return getHumanChoice();
             }
         }
-    
-        let humanMove = humanChoice();
 
-// scoring algorithm
+        const humanMove = getHumanChoice();
 
-    if ((computerMove === rock && humanMove === rock) || (computerMove === paper && humanMove === paper) || (computerMove === scissors && humanMove === scissors)) {
-    alert(`It's a draw! You both chose ${humanMove}!`);
-    return draw ++;
-    } else if ((computerMove === rock && humanMove === scissors) || (computerMove === paper && humanMove === rock) || (computerMove === scissors && humanMove === paper)) {
-        alert(`You lose! You chose ${humanMove}, the computer got ${computerMove}`);
-        return computerScore ++;
-    } else {
-        alert(`You win! You chose ${humanMove}, the computer went for ${computerMove}. Bravo!`)
-        return humanScore ++;
+        // scoring algorithm
+
+        if ((computerMove === rock && humanMove === rock) || (computerMove === paper && humanMove === paper) || (computerMove === scissors && humanMove === scissors)) {
+            alert(`It's a draw! You both chose ${humanMove}!`);
+            draw++;
+        } else if ((computerMove === rock && humanMove === scissors) || (computerMove === paper && humanMove === rock) || (computerMove === scissors && humanMove === paper)) {
+            alert(`You lose! You chose ${humanMove}, the computer got ${computerMove}`);
+            computerScore++;
+        } else {
+            alert(`You win! You chose ${humanMove}, the computer went for ${computerMove}. Bravo!`)
+            humanScore++;
+        }
     }
-}
-
-playRound();
-console.log(humanScore,computerScore,draw);
+    playRound();
+    console.log(humanScore, computerScore, draw);
 }
 
 // for-loop alternative
