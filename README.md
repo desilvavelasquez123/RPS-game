@@ -1,2 +1,2 @@
 # RPS-game
-A Rock Paper Scissors Browser Console Game
+A Rock-Paper-Scissors Browser Prompt Game
