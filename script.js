@@ -5,7 +5,7 @@ alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page!\nYou will pl
 
 let roundsPlayed = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", function() {
 
     document.body.setAttribute("style", "display: flex; flex-direction: row wrap; justify-content: center; align-items: center; height: 500px; gap: 20px;");
   
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const buttons = document.querySelectorAll("button");
 
-    buttons?.forEach((button) => {
+    buttons.forEach((button) => {
         button.addEventListener("click", playGame);
     });
 });
