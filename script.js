@@ -1,7 +1,7 @@
 "use strict"; // in Strict JavaScript, all variables have to be explicitly declared
 
 // greetings
-alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page!\nYou will play 5 rounds against your device.\nPlease select "OK" to close this window and start the game!\nGood luck! :)');
+alert('Hello, visitor! Welcome to my Rock-Paper-Scissors game page!\nYou will play 5 rounds against your device.\n\nPlease select "OK" to close this window and start the game!\n\nTo start a round, please select a button on the screen!\n\nGood luck! :)');
 
 let roundsPlayed = 0;
 
@@ -53,6 +53,8 @@ function playGame(event) {
         // human choice via button select
         function getHumanChoice(event) {
             let choice = event.target.id;  // Get the ID of the clicked button (rock, paper, or scissors)
+            let roundNumber = 1 + roundsPlayed;
+            alert(`Round ${roundNumber}`);
             return choice;
         }
 
@@ -67,7 +69,7 @@ function playGame(event) {
             (computerMove === "paper" && humanMove === "rock") ||
             (computerMove === "scissors" && humanMove === "paper")
         ) {
-            alert(`You lose! You chose ${humanMove}, the computer chose ${computerMove}`);
+            alert(`You lose! You chose ${humanMove}, the computer chose ${computerMove}.`);
             computerScore++;
         } else {
             alert(`You win! You chose ${humanMove}, the computer chose ${computerMove}. Bravo!`);
