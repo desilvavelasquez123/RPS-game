@@ -81,7 +81,7 @@ function playGame(event) {
     console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}, Draw: ${draw}`);
     roundsPlayed++;
     // Check if it's the 5th round, if so show the final score and reload the page immediately
-    if (roundsPlayed == 5) {  // This is the 5th round (roundsPlayed is 0-indexed)
+    if (roundsPlayed === 5) {  // This is the 5th round (roundsPlayed is 0-indexed)
         // Show final score alert
         alert(`Final score: You: ${humanScore} Computer/Device: ${computerScore} Draw: ${draw}\nThe page will reload to restart the game - press OK to continue!`);
         location.reload(); // Reload the page immediately
